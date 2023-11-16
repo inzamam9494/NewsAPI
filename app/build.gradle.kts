@@ -77,6 +77,12 @@ dependencies {
 
     // navigation-hilt
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    // view Model
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
 }
 // Allow references to generated code
 kapt {
