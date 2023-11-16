@@ -1,5 +1,7 @@
 package com.example.newsapi.data.entity
 
+// step 4
+
 data class NewsData(
     val articles: List<Article>,
     val status: String,
