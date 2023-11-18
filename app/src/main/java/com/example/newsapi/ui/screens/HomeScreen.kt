@@ -33,6 +33,7 @@ fun HomeScreen(newsViewModel: NewsViewModel = hiltViewModel()) {
             is ResourcesState.Success ->{
                 val response = (newRes as ResourcesState.Success).data
                 Log.d(TAG, "Inside_Success ${response.status} = ${response.totalResults}")
+                NewsList(newsData = response)
             }
             is ResourcesState.Error -> {
                 Log.d(TAG, "Inside_Error")

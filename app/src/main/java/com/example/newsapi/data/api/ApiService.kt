@@ -13,7 +13,7 @@ everything_api = "<BASE_URL>/everything/<source_id>.json"
  */
 // https://saurav.tech/NewsAPI/top-headlines/category/health/in.json
 interface ApiService {
-    @GET("top-headlines/category")
+    @GET("top-headlines/category/<category>/<country_code>")
     suspend fun getNews(
         @Query("category") category: String,
         @Query("country_code") countryCode: String
