@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 // step 7
 interface NewsDataResources {
-    suspend fun getNews( category: String, countryCode: String): Response<NewsData>
+    suspend fun getNews( category: String, countryCode: String): NewsData
 }

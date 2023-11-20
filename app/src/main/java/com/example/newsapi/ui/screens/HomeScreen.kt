@@ -4,37 +4,38 @@ import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
-import com.example.newsapi.internetCheck.ResourcesState
 import com.example.newsapi.ui.viewModle.NewsViewModel
+import com.example.newsapi.ui.viewModle.ResourcesState
 
 const val TAG = "HomeScreen"
 
 // step 4
 @Composable
-fun HomeScreen(newsViewModel: NewsViewModel = hiltViewModel()) {
+fun HomeScreen(
+    newsViewModel: NewsViewModel = hiltViewModel(),
+    newRes: ResourcesState
+) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        val newRes by newsViewModel.news.collectAsState()
 
-        when(newRes){
-            is ResourcesState.Loading ->{
-                Log.d(TAG,"Inside_Loading")
+
+        when (newRes) {
+            is ResourcesState.Loading -> {
+                Log.d(TAG, "Inside_Loading")
                 Loader()
             }
-            is ResourcesState.Success ->{
-                val response = (newRes as ResourcesState.Success).data
-                Log.d(TAG, "Inside_Success ${response.status} = ${response.totalResults}")
-                NewsList(newsData = response)
+
+            is ResourcesState.Success -> {
+//                Log.d(TAG, "Inside_Success ${newRes.status} = ${response.totalResults}")
+                NewsList(newsData = newRes.data)
             }
+
             is ResourcesState.Error -> {
                 Log.d(TAG, "Inside_Error")
             }

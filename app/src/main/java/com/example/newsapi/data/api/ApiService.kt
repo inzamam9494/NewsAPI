@@ -17,5 +17,5 @@ interface ApiService {
     suspend fun getNews(
         @Query("category") category: String,
         @Query("country_code") countryCode: String
-    ): Response<NewsData>
+    ): NewsData
 }

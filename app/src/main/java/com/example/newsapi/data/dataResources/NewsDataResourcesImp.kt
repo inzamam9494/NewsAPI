@@ -10,7 +10,7 @@ import javax.inject.Inject
 class NewsDataResourcesImp @Inject constructor(
     private val apiService: ApiService
 ) : NewsDataResources{
-    override suspend fun getNews(category: String, countryCode: String): Response<NewsData> {
+    override suspend fun getNews(category: String, countryCode: String): NewsData {
         return apiService.getNews(category,countryCode)
     }
 
