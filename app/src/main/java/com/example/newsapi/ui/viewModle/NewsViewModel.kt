@@ -40,7 +40,7 @@ class NewsViewModel @Inject constructor(
          viewModelScope.launch {
              try {
                  newsUiState = ResourcesState.Success(newsRepository.getNews(category,countryCode))
-                 Log.d(TAG, "Inside_Success")
+                 Log.d(TAG, "Inside_Success or not")
              } catch (e: IOException){
                  newsUiState = ResourcesState.Error
                  Log.d(TAG, "Inside_Error")
